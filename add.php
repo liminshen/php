@@ -7,7 +7,7 @@
 <body>
 	<?php include("menu.php");//引入导航栏 ?>
 	<h3>发布商品</h3>
-	<form action="add.php?action=add" enctype="multipart/form-data">
+	<form action="action.php?action=add" enctype="multipart/form-data" method="post">
 	<table border="1" width="400">
 		<tr>
 			<td align="right">名称：</td>
@@ -20,7 +20,7 @@
 					<?php
 						include ('dbconfig.php');
 						foreach ($typelist as $k => $v) {
-							<option value="{$k}">{$v}</option>
+							echo "<option value='{$k}'>{$v}</option>";
 						}
 					?>
 				</select>
@@ -48,5 +48,6 @@
 		</tr>
 	</table>
 	</form>
+	<script></script>
 </body>
 </html>

@@ -30,33 +30,34 @@
 			}
 			return $res;
 		}
+		
 		//3.限制大小
-		if($upfile.size>100000){
-			$res["info"] = "文件过大";
-			return $res;
-		}
-		//4.过滤类型
-		if(!in_array($upfile["type"],$typelist)){
-			$res["info"] = "上传文件不符合".$upfile["type"];
-			return $res;
-		}
-		//5.初始化下信息（为图片产生一个随机的名字）;
-		$fileinfo = pathinfo($upfile["name"]);
-		do{
-			$newfile = date("YmdHis").rand(1000,999).".".$fileinfo["extendion"];//随机生成个文件名字
-		}
+		// if($upfile.size>100000){
+		// 	$res["info"] = "文件过大";
+		// 	return $res;
+		// }
+		// //4.过滤类型
+		// if(!in_array($upfile["type"],$typelist)){
+		// 	$res["info"] = "上传文件不符合".$upfile["type"];
+		// 	return $res;
+		// }
+		// //5.初始化下信息（为图片产生一个随机的名字）;
+		// $fileinfo = pathinfo($upfile["name"]);
+		// do{
+		// 	$newfile = date("YmdHis").rand(1000,999).".".$fileinfo["extendion"];//随机生成个文件名字
+		// }
 		//6.执行上传处理
-		if(is_uploaded_file($upfile["tmp_name"])){
-			if(move_uploaded_file($upfile["tmp_name"],$path."/".$newfile)){
-				//上传成功后的文件名赋给返回数组
-				$res["info"] = $newfile;
-				$res["error"] = true;
-			}else{
-				$res["info"] = "上传文件失败";
-			}
-		}else{
-			$res["info"] = "不是一个上传的文件";
-		}
-		return $res;
+		// if(is_uploaded_file($upfile["tmp_name"])){
+		// 	if(move_uploaded_file($upfile["tmp_name"],$path."/".$newfile)){
+		// 		//上传成功后的文件名赋给返回数组
+		// 		$res["info"] = $newfile;
+		// 		$res["error"] = true;
+		// 	}else{
+		// 		$res["info"] = "上传文件失败";
+		// 	}
+		// }else{
+		// 	$res["info"] = "不是一个上传的文件";
+		// }
+		// return $res;
 	}
 ?>
